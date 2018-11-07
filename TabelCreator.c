@@ -10,6 +10,10 @@ typedef struct tabel{
     Column columns[20];
     char name [60];
 }Tabel;
+typedef struct data{
+    char value[100];
+
+}Data;
 int main(){
     
 }
