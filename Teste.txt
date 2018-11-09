@@ -1,0 +1,4 @@
+Colunas [ 
+{ Name:Julgamento Type:2 }
+{ Name:Otorino Type:1 }
+]

@@ -10,7 +10,7 @@ typedef struct column
 
 typedef struct tabel
 {
-    char primary[1];
+    int primary;
     Column *columns;
     char name[60];
 } Tabel;
@@ -52,7 +52,7 @@ int createTabel()
 
         printf("Digite o nome da coluna: ");
         scanf("%s", &colName);
-        
+
         printf("Digite o tipo de dado da coluna (0:Char 1:Int 2:Float 3:Double): ");
         scanf("%d", &colType);
         printf("\n");
@@ -64,12 +64,27 @@ int createTabel()
 
     printf("Nome da tabela: %s\n", newTabel.name);
 
-    for (i = 0; i < colCount; i++)
+    printf("Qual o numero de coluna de chave primaria?\n");
+    scanf("%d", &newTabel.primary);
+
+    strcat(newTabel.name, ".txt");
+    FILE *NewTabel = fopen(newTabel.name, "w");
+
+    if (NewTabel == NULL)
     {
-        printf("Coluna %s \n", newTabel.columns[i].name);
-        printf("Tipo de Dado: %d", newTabel.columns[i].type);
-        printf("\n");
+        printf("Erro no arquivo!\n");
     }
 
+    fprintf(NewTabel, "Colunas [ \n");
+    for (i = 0; i < colCount; i++)
+    {
+        fprintf(NewTabel, "{ Name:%s Type:%d }\n", newTabel.columns[i].name, newTabel.columns[i].type);
+    }
+    fprintf(NewTabel, "]\n");
+    FILE *Tabels = fopen("Tabels.txt", "w+");
+    fprintf(Tabels, "%s\n", newTabel.name);
+
+    fclose(Tabels);
+    fclose(NewTabel);
     return 0;
 }
