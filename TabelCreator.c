@@ -81,7 +81,8 @@ int createTabel()
         fprintf(NewTabel, "{ Name:%s Type:%d }\n", newTabel.columns[i].name, newTabel.columns[i].type);
     }
     fprintf(NewTabel, "]\n");
-    FILE *Tabels = fopen("Tabels.txt", "w+");
+    fprintf(NewTabel, "Chave Primaria:%d\n", newTabel.primary);
+    FILE *Tabels = fopen("Tabels.txt", "a+");
     fprintf(Tabels, "%s\n", newTabel.name);
 
     fclose(Tabels);
