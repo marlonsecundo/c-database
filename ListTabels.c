@@ -4,7 +4,7 @@
 
 int main(){
     char x[100];
-    FILE *Tabels = fopen("Tabels.txt", "r");
+    FILE *Tabels = fopen("Tabels", "r");
     while (fscanf(Tabels, "%s", &x)!=-1)
     {
         printf("%s\n", x);

@@ -7,7 +7,7 @@ void deleteTabel(char erase[100])
     char str[100];
     
     strcat(str, "\n");
-    FILE *Erase = fopen("Tabels.txt", "r+");
+    FILE *Erase = fopen("Tabels", "r+");
     fseek(Erase, 0, SEEK_SET);
     while (fgets(str, sizeof str, Erase) != NULL)
     {

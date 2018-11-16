@@ -6,7 +6,6 @@ int main(){
     char tabel[60];
     printf("Digite o nome da tabela: ");
     scanf("%s", &tabel);
-    strcat(tabel, ".txt");
     FILE *Tabel = fopen(tabel, "r");
     if (Tabel == NULL)
     {
