@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-void insertNewData()
+void insertNewData(Tabel tabel)
 {
     printf("-- Inserção de Dados --\n");
     char name[50];

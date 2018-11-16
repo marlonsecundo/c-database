@@ -22,7 +22,7 @@ Tabel readTabel(char tabelName[50])
     tabel = setPrimaryKey(fileTabel, tabel);
 
     // Set Data
-    //tabel = setData(fileTabel, tabel);
+    tabel = setData(fileTabel, tabel);
 
     printf("%d", tabel.primary);
     return tabel;

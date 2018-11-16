@@ -2,7 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-void main()
+#include "DefineTabel.c"
+
+void setTabel(Tabel tabel)
 {
-    createTabel();
+
 }

@@ -2,20 +2,20 @@
 #include <stdlib.h>
 #include <string.h>
 
-int main(){
-    char erase[60];
+void deleteTabel(char erase[100])
+{
     char str[100];
-    printf("Qual tabela deseja que seja apagada? ");
-    scanf("%s", &erase);
+    
     strcat(str, "\n");
     FILE *Erase = fopen("Tabels.txt", "r+");
     fseek(Erase, 0, SEEK_SET);
-    while(fgets(str, sizeof str, Erase) != NULL)
+    while (fgets(str, sizeof str, Erase) != NULL)
     {
-        if(strcmp(str, erase) == 0){
-            
+        if (strcmp(str, erase) == 0)
+        {
         }
-        else{
+        else
+        {
             fprintf(Erase, str);
         }
     }
