@@ -1,5 +1,0 @@
-Colunas [ 
-{ Name:Nomes Type:0 }
-{ Name:CPF Type:2 }
-{ Name:AK47 Type:1 }
-]

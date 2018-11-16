@@ -2,36 +2,15 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct column
-{
-    char name[60];
-    int type;
-} Column;
-
-typedef struct tabel
-{
-    int primary;
-    Column *columns;
-    char name[60];
-} Tabel;
-
-typedef struct data
-{
-    char value[100];
-} Data;
-
-int createTabel();
-
-int main()
-{
-    createTabel();
-}
+#include "DefineTabel.c"
 
 int createTabel()
 {
     Tabel newTabel;
     int colCount = 0;
     int i = 0;
+
+    // -- Criação da Tabela --
 
     printf("-- Informe a Tabela a Ser Criada --\n");
 
@@ -62,30 +41,32 @@ int createTabel()
         newTabel.columns[i].type = colType;
     }
 
-    printf("Nome da tabela: %s\n", newTabel.name);
-
     printf("Qual o numero de coluna de chave primaria?\n");
     scanf("%d", &newTabel.primary);
 
-    strcat(newTabel.name, ".txt");
-    FILE *NewTabel = fopen(newTabel.name, "w");
+    // -- Salvamento em Arquivo --
 
-    if (NewTabel == NULL)
-    {
-        printf("Erro no arquivo!\n");
-    }
+    FILE *fileTabel = fopen(newTabel.name, "w");
 
-    fprintf(NewTabel, "Colunas [ \n");
+    fprintf(fileTabel, "Colunas [\n");
+
     for (i = 0; i < colCount; i++)
     {
-        fprintf(NewTabel, "{ Name:%s Type:%d }\n", newTabel.columns[i].name, newTabel.columns[i].type);
+        fprintf(fileTabel, "{ Name:%s Type:%d }\n", newTabel.columns[i].name, newTabel.columns[i].type);
     }
-    fprintf(NewTabel, "]\n");
-    fprintf(NewTabel, "Chave Primaria:%d\n", newTabel.primary);
-    FILE *Tabels = fopen("Tabels.txt", "a+");
+    fprintf(fileTabel, "]\n\n");
+
+    fprintf(fileTabel, "Chave Primaria:%d\n\n", newTabel.primary);
+
+    fprintf(fileTabel, "Data\n");
+
+    // -- Salvamento no Arquivo Tabels
+    FILE *Tabels = fopen("Tabels", "a+");
     fprintf(Tabels, "%s\n", newTabel.name);
 
     fclose(Tabels);
-    fclose(NewTabel);
+    fclose(fileTabel);
     return 0;
 }
+
+
