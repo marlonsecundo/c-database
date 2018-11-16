@@ -18,5 +18,6 @@ typedef struct tabel
     int primary;
     Column *columns;
     Data *data;
+    int length;
     char name[60];
 } Tabel;

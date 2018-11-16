@@ -2,12 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "DefineTabel.c"
 
 int createTabel()
 {
     Tabel newTabel;
-    int colCount = 0;
     int i = 0;
 
     // -- Criação da Tabela --
@@ -16,15 +14,16 @@ int createTabel()
 
     printf("Digite o nome da tabela: ");
     scanf("%s", &newTabel.name);
+    
     printf("Digite o numero de colunas: ");
-    scanf("%d", &colCount);
+    scanf("%d", &newTabel.length);
     printf("\n");
 
     printf("-- Informe os Dados das Colunas --\n");
 
-    newTabel.columns = (Column *)malloc(colCount * sizeof(Column));
+    newTabel.columns = (Column *)malloc(newTabel.length * sizeof(Column));
 
-    for (i = 0; i < colCount; i++)
+    for (i = 0; i < newTabel.length; i++)
     {
         char colName[60];
         int colType = 0;
@@ -50,7 +49,7 @@ int createTabel()
 
     fprintf(fileTabel, "Colunas [\n");
 
-    for (i = 0; i < colCount; i++)
+    for (i = 0; i < newTabel.length; i++)
     {
         fprintf(fileTabel, "{ Name:%s Type:%d }\n", newTabel.columns[i].name, newTabel.columns[i].type);
     }
