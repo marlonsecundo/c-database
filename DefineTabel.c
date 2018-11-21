@@ -10,14 +10,17 @@ typedef struct column
 
 typedef struct data
 {
-    char value[200];
+    char value[500];
 } Data;
 
 typedef struct tabel
 {
+    char name[60];
     int primary;
+
     Column *columns;
     Data *data;
-    int length;
-    char name[60];
+
+    int colLength;
+    int dataLength;
 } Tabel;

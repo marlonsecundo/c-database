@@ -1,0 +1,8 @@
+Colunas [
+{ Name:nome Type:0 }
+{ Name:idade Type:1 }
+]
+
+Chave Primaria:1
+
+Data

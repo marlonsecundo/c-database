@@ -3,27 +3,26 @@
 #include <string.h>
 
 
-int createTabel()
+void createTabel()
 {
     Tabel newTabel;
     int i = 0;
-
-    // -- Criação da Tabela --
-
+    
     printf("-- Informe a Tabela a Ser Criada --\n");
 
     printf("Digite o nome da tabela: ");
     scanf("%s", &newTabel.name);
     
     printf("Digite o numero de colunas: ");
-    scanf("%d", &newTabel.length);
+    scanf("%d", &newTabel.colLength);
     printf("\n");
 
     printf("-- Informe os Dados das Colunas --\n");
 
-    newTabel.columns = (Column *)malloc(newTabel.length * sizeof(Column));
+    newTabel.columns = (Column *)malloc(newTabel.colLength * sizeof(Column));
+    newTabel.data = (Data *)malloc(0 * sizeof(Data));
 
-    for (i = 0; i < newTabel.length; i++)
+    for (i = 0; i < newTabel.colLength; i++)
     {
         char colName[60];
         int colType = 0;
@@ -49,10 +48,11 @@ int createTabel()
 
     fprintf(fileTabel, "Colunas [\n");
 
-    for (i = 0; i < newTabel.length; i++)
+    for (i = 0; i < newTabel.colLength; i++)
     {
         fprintf(fileTabel, "{ Name:%s Type:%d }\n", newTabel.columns[i].name, newTabel.columns[i].type);
     }
+
     fprintf(fileTabel, "]\n\n");
 
     fprintf(fileTabel, "Chave Primaria:%d\n\n", newTabel.primary);
@@ -65,7 +65,6 @@ int createTabel()
 
     fclose(Tabels);
     fclose(fileTabel);
-    return 0;
 }
 
 

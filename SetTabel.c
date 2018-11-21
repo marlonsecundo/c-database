@@ -2,25 +2,29 @@
 #include <stdlib.h>
 #include <string.h>
 
-
-void setTabel(Tabel tabel)
+void SetTabel(Tabel tabel)
 {
-    int i;
-    int count = sizeof(tabel.columns)/sizeof(Column*);
-    FILE *set = fopen(tabel.name, "w");
-    fprintf(set, "Colunas [\n");
-    for (i = 0; i < count; i++)
+    FILE *fileTabel = fopen(tabel.name, "w");
+
+    fprintf(fileTabel, "Colunas [\n");
+
+    for (int i = 0; i < tabel.colLength; i++)
     {
-        fprintf(set, "{ Name:%s Type:%d }\n", tabel.columns[i].name, tabel.columns[i].type);
+        fprintf(fileTabel, "{ Name:%s Type:%d }\n", tabel.columns[i].name, tabel.columns[i].type);
     }
-    fprintf(set, "]\n\n");
 
-    fprintf(set, "Chave Primaria:%d\n\n", tabel.primary);
+    fprintf(fileTabel, "]\n\n");
 
-    fprintf(set, "Data\n");
-    
-    fprintf(set, "{ ");
-    
-    
-    fprintf(set, "}");
+    fprintf(fileTabel, "Chave Primaria:%d\n\n", tabel.primary);
+
+    fprintf(fileTabel, "Data\n");
+
+    for (int i = 0; i < tabel.dataLength; i++)
+    {
+        fprintf(fileTabel, "{");
+
+        fprintf(fileTabel, " %s ", tabel.data[i]);
+        
+        fprintf(fileTabel, "}\n");
+    }
 }

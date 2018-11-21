@@ -6,8 +6,13 @@ Tabel setColumns(FILE *fileTabel, Tabel tabel);
 Tabel setPrimaryKey(FILE *fileTabel, Tabel tabel);
 Tabel setData(FILE *fileTabel, Tabel tabel);
 
-Tabel readTabel(char tabelName[50])
+Tabel GetTabel()
 {
+    char tabelName[50];
+    printf("Digite o nome da tabela: ");
+    scanf("%s", tabelName);
+    printf("\n");
+
     FILE *fileTabel = fopen(tabelName, "a+");
     Tabel tabel = {};
 
@@ -51,7 +56,7 @@ Tabel setColumns(FILE *fileTabel, Tabel tabel)
         i++;
     }
 
-    tabel.length = i;
+    tabel.colLength = i;
 
     return tabel;
 }
@@ -86,15 +91,22 @@ Tabel setData(FILE *fileTabel, Tabel tabel)
 
     int i = 0;
 
+    tabel.data = (Data *)malloc(0 * sizeof(Data));
+
     while (fgets(string, sizeof string, fileTabel) != NULL)
     {
         if (strcmp(string, "Data\n") == 0)
             continue;
 
+        printf("Bom dia\n");
         tabel.data = (Data *)realloc(tabel.data, i + 1 * sizeof(Data *));
 
         strcpy(tabel.data[i].value, string);
+
+        i++;
     }
+
+    tabel.dataLength = 1;
 
     return tabel;
 }
