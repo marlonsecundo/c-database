@@ -8,7 +8,7 @@ void deleteTabel()
     printf("Qual tabela deletar?\n");
     scanf("%s", &erase);
     char str[100];
-    
+
     strcat(erase, "\n");
     FILE *Erase = fopen("Tabels", "r");
     FILE *Aux = fopen("Help", "w");
@@ -23,9 +23,12 @@ void deleteTabel()
             fprintf(Aux, str);
         }
     }
+    fflush(Erase);
+    fflush(Aux);
+
     fclose(Erase);
     fclose(Aux);
-    
+
     FILE *Done = fopen("Tabels", "w+");
     FILE *A = fopen("Help", "r");
 
@@ -34,10 +37,13 @@ void deleteTabel()
     {
         fprintf(Done, str);
     }
+
+    fflush(A);
     fclose(A);
 
     remove("Help");
     remove(erase);
 
+    fflush(Done);
     fclose(Done);
 }

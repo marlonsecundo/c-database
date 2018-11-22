@@ -3,10 +3,15 @@
 #include <string.h>
 
 void SetTabel(Tabel tabel)
-{
+{ 
+    setbuf(stdin, NULL);
+    setbuf(stdout, NULL);
+
     FILE *fileTabel = fopen(tabel.name, "w");
 
     fprintf(fileTabel, "Colunas [\n");
+
+    printf("Colunas: %d\n", tabel.colLength);
 
     for (int i = 0; i < tabel.colLength; i++)
     {
@@ -18,13 +23,13 @@ void SetTabel(Tabel tabel)
     fprintf(fileTabel, "Chave Primaria:%d\n\n", tabel.primary);
 
     fprintf(fileTabel, "Data\n");
-
+    printf("Data: %d\n", tabel.dataLength);
     for (int i = 0; i < tabel.dataLength; i++)
     {
-        fprintf(fileTabel, "{");
-
-        fprintf(fileTabel, " %s ", tabel.data[i]);
-        
-        fprintf(fileTabel, "}\n");
+        fprintf(fileTabel, "%s", tabel.data[i].value);
     }
+
+    fclose(fileTabel);
+
+    setbuf(stdin, NULL);
 }

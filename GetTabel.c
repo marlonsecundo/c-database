@@ -13,7 +13,7 @@ Tabel GetTabel()
     scanf("%s", tabelName);
     printf("\n");
 
-    FILE *fileTabel = fopen(tabelName, "a+");
+    FILE *fileTabel = fopen(tabelName, "r");
     Tabel tabel = {};
 
     strcpy(tabel.name, tabelName);
@@ -25,7 +25,11 @@ Tabel GetTabel()
     tabel = setPrimaryKey(fileTabel, tabel);
 
     // Set Data
-    //tabel = setData(fileTabel, tabel);
+    tabel = setData(fileTabel, tabel);
+
+    fclose(fileTabel);
+
+    setbuf(stdin, NULL);
 
     return tabel;
 }
@@ -36,9 +40,12 @@ Tabel setColumns(FILE *fileTabel, Tabel tabel)
 
     char string[100];
     char name[100];
-    int type;
+    int type = 0;
 
     int i = 0;
+
+    tabel.columns = (Column*) malloc(1 * sizeof(Column*));
+
     while (fgets(string, sizeof string, fileTabel) != NULL)
     {
         if (strcmp(string, "Colunas [\n") == 0)
@@ -90,23 +97,30 @@ Tabel setData(FILE *fileTabel, Tabel tabel)
     fseek(fileTabel, 0, SEEK_SET);
 
     int i = 0;
-
-    tabel.data = (Data *)malloc(0 * sizeof(Data));
+    int exec = 0;
+    
+    tabel.data = (Data*) malloc(sizeof(Data*));
 
     while (fgets(string, sizeof string, fileTabel) != NULL)
     {
         if (strcmp(string, "Data\n") == 0)
+        {
+            exec = 1;
             continue;
+        }
 
-        printf("Bom dia\n");
-        tabel.data = (Data *)realloc(tabel.data, i + 1 * sizeof(Data *));
+        if (exec == 1)
+        {
+            tabel.data = (Data *)realloc(tabel.data, i + 1 * sizeof(Data *));
 
-        strcpy(tabel.data[i].value, string);
+            strcpy(tabel.data[i].value, string);
 
-        i++;
+            i++;
+        }
     }
 
-    tabel.dataLength = 1;
+    if (i > 0)
+        tabel.dataLength = i - 1;
 
     return tabel;
 }

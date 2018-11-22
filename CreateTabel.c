@@ -2,17 +2,18 @@
 #include <stdlib.h>
 #include <string.h>
 
-
 void createTabel()
 {
+    setbuf(stdin, NULL);
+
     Tabel newTabel;
     int i = 0;
-    
+
     printf("-- Informe a Tabela a Ser Criada --\n");
 
     printf("Digite o nome da tabela: ");
     scanf("%s", &newTabel.name);
-    
+
     printf("Digite o numero de colunas: ");
     scanf("%d", &newTabel.colLength);
     printf("\n");
@@ -39,8 +40,23 @@ void createTabel()
         newTabel.columns[i].type = colType;
     }
 
-    printf("Qual o numero de coluna de chave primaria?\n");
-    scanf("%d", &newTabel.primary);
+    int p = 0;
+    do
+    {
+        printf("Qual o numero de coluna de chave primaria?\n");
+        scanf("%d", &newTabel.primary);
+
+        if (newTabel.columns[newTabel.primary - 1].type != 1)
+        {
+            printf("-- Erro --\n");
+            printf("A coluna deve ser do tipo inteira\n");
+        }
+        else
+        {
+            p = 1;
+        }
+
+    } while (p == 0);
 
     // -- Salvamento em Arquivo --
 
@@ -63,8 +79,9 @@ void createTabel()
     FILE *Tabels = fopen("Tabels", "a+");
     fprintf(Tabels, "%s\n", newTabel.name);
 
+    fflush(Tabels);
+    fflush(fileTabel);
+
     fclose(Tabels);
     fclose(fileTabel);
 }
-
-

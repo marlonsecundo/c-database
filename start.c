@@ -7,8 +7,10 @@
 #include "InsertData.c"
 #include "CreateTabel.c"
 #include "ListTabels.c"
+#include "ReadData.c"
+#include "SetTabel.c"
 
-void main()
+int main()
 {
     int x = 1;
     Tabel tabel;
@@ -21,23 +23,28 @@ void main()
         printf("4 - Mostrar os dados de uma tabela\n");
         printf("Outro valor - Encerrar o programa\n");
         scanf("%d", &x);
+
         
         switch (x)
         {
         case 1:
             createTabel();
             break;
-
         case 2:
             listTabels();
             break;
-        
         case 3:
             tabel = GetTabel();
             tabel = insertData(tabel);
-        
-
+            SetTabel(tabel);
+            break;
+        case 4:
+            readData();
+            break;
+        default:
             break;
         }
     }
+
+    return 0;
 }

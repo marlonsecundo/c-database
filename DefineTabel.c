@@ -10,7 +10,7 @@ typedef struct column
 
 typedef struct data
 {
-    char value[500];
+    char value[150];
 } Data;
 
 typedef struct tabel

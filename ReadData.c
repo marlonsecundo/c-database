@@ -7,12 +7,11 @@ void readData()
     char tabel[60];
     printf("Digite o nome da tabela: ");
     scanf("%s", &tabel);
-    
+
     FILE *Tabel = fopen(tabel, "r");
-    
+
     char read[100];
-    int i;
-    
+
     while (fgets(read, sizeof read, Tabel) != NULL)
     {
         if (strcmp(read, "Data\n") == 0)
@@ -23,7 +22,8 @@ void readData()
             }
         }
     }
-    
+
     fclose(Tabel);
-    return 0;
+
+    setbuf(stdin, NULL);
 }

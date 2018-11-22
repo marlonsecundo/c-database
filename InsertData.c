@@ -5,7 +5,7 @@
 Tabel insertData(Tabel tabel)
 {
     printf("Colunas a serem preenchidas:\n");
-
+ 
     char type[20];
 
     for (int i = 0; i < tabel.colLength; i++)
@@ -46,6 +46,6 @@ Tabel insertData(Tabel tabel)
     strcpy(tabel.data[tabel.dataLength - 1].value, data);
 
     printf("\n\n");
-
+    
     return tabel;
 }
