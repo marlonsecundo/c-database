@@ -25,5 +25,7 @@ void readData()
 
     fclose(Tabel);
 
+    printf("\n\n");
+
     setbuf(stdin, NULL);
 }

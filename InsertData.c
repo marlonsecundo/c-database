@@ -41,7 +41,7 @@ Tabel insertData(Tabel tabel)
     strcat(data, " }\n");
 
     tabel.dataLength += 1;
-    tabel.data = (Data *)realloc(tabel.data, tabel.dataLength * sizeof(Data *));
+    tabel.data = (Data *)realloc(tabel.data, tabel.dataLength * sizeof(Data));
 
     strcpy(tabel.data[tabel.dataLength - 1].value, data);
 

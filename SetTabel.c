@@ -11,8 +11,6 @@ void SetTabel(Tabel tabel)
 
     fprintf(fileTabel, "Colunas [\n");
 
-    printf("Colunas: %d\n", tabel.colLength);
-
     for (int i = 0; i < tabel.colLength; i++)
     {
         fprintf(fileTabel, "{ Name:%s Type:%d }\n", tabel.columns[i].name, tabel.columns[i].type);
@@ -23,7 +21,6 @@ void SetTabel(Tabel tabel)
     fprintf(fileTabel, "Chave Primaria:%d\n\n", tabel.primary);
 
     fprintf(fileTabel, "Data\n");
-    printf("Data: %d\n", tabel.dataLength);
     for (int i = 0; i < tabel.dataLength; i++)
     {
         fprintf(fileTabel, "%s", tabel.data[i].value);
@@ -31,5 +28,4 @@ void SetTabel(Tabel tabel)
 
     fclose(fileTabel);
 
-    setbuf(stdin, NULL);
 }

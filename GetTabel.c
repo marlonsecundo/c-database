@@ -44,7 +44,7 @@ Tabel setColumns(FILE *fileTabel, Tabel tabel)
 
     int i = 0;
 
-    tabel.columns = (Column*) malloc(1 * sizeof(Column*));
+    tabel.columns = (Column*) malloc(1 * sizeof(Column));
 
     while (fgets(string, sizeof string, fileTabel) != NULL)
     {
@@ -55,7 +55,7 @@ Tabel setColumns(FILE *fileTabel, Tabel tabel)
 
         sscanf(string, "{ Name:%s Type:%d }", name, &type);
 
-        tabel.columns = (Column *)realloc(tabel.columns, i + 1 * sizeof(Column *));
+        tabel.columns = (Column *)realloc(tabel.columns, i + 1 * sizeof(Column));
 
         strcpy(tabel.columns[i].name, name);
         tabel.columns[i].type = type;
@@ -111,7 +111,7 @@ Tabel setData(FILE *fileTabel, Tabel tabel)
 
         if (exec == 1)
         {
-            tabel.data = (Data *)realloc(tabel.data, i + 1 * sizeof(Data *));
+            tabel.data = (Data *)realloc(tabel.data, i + 1 * sizeof(Data));
 
             strcpy(tabel.data[i].value, string);
 
@@ -120,7 +120,7 @@ Tabel setData(FILE *fileTabel, Tabel tabel)
     }
 
     if (i > 0)
-        tabel.dataLength = i - 1;
+        tabel.dataLength = i;
 
     return tabel;
 }
