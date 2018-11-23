@@ -4,6 +4,7 @@
 
 void listTabels()
 {
+    printf("\n-- Tabelas Existentes --\n");
     char x[100];
     FILE *Tabels = fopen("Tabels", "r");
 
@@ -11,4 +12,6 @@ void listTabels()
         printf("%s\n", x);
 
     fclose(Tabels);
+
+    printf("\n\n");
 }

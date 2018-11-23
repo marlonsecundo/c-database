@@ -9,7 +9,7 @@ void createTabel()
     Tabel newTabel;
     int i = 0;
 
-    printf("-- Informe a Tabela a Ser Criada --\n");
+    printf("\n-- Informe a Tabela a Ser Criada --\n");
 
     printf("Digite o nome da tabela: ");
     scanf("%s", &newTabel.name);
@@ -33,7 +33,6 @@ void createTabel()
 
         printf("Digite o tipo de dado da coluna (0:Char 1:Int 2:Float 3:Double): ");
         scanf("%d", &colType);
-        printf("\n");
 
         strcpy(newTabel.columns[i].name, colName);
 
@@ -46,9 +45,9 @@ void createTabel()
         printf("Qual o numero de coluna de chave primaria?\n");
         scanf("%d", &newTabel.primary);
 
-        if (newTabel.columns[newTabel.primary - 1].type != 1)
+        if (newTabel.columns[newTabel.primary].type != 1)
         {
-            printf("-- Erro --\n");
+            printf("\n-- Erro --\n");
             printf("A coluna deve ser do tipo inteira\n");
         }
         else
@@ -84,4 +83,5 @@ void createTabel()
 
     fclose(Tabels);
     fclose(fileTabel);
+    printf("\n");
 }
