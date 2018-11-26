@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-void readData()
+void ReadData()
 {
     char tabel[60];
     printf("Digite o nome da tabela: ");

@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-void createTabel()
+void CreateTabel()
 {
     setbuf(stdin, NULL);
 

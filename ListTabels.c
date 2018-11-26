@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-void listTabels()
+void ListTabels()
 {
     printf("\n-- Tabelas Existentes --\n");
     char x[100];

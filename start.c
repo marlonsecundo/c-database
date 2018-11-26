@@ -9,37 +9,44 @@
 #include "ListTabels.c"
 #include "ReadData.c"
 #include "SetTabel.c"
+#include "DeleteData.c"
 
 int main()
 {
     int x = 1;
     Tabel tabel;
-    while (x > 0 && x <= 4)
+    while (x > 0 && x <= 5)
     {
         printf("-- Informe o que deseja fazer --\n");
         printf("1 - Criar uma tabela\n");
         printf("2 - Listar todas as tabelas\n");
         printf("3 - Inserir uma nova linha em uma tabela\n");
         printf("4 - Mostrar os dados de uma tabela\n");
-        printf("Outro valor - Encerrar o programa\n");
+        printf("5 - Apagar uma linha\n");
+        printf("-- Outro valor - Encerrar o programa --\n");
         scanf("%d", &x);
+        printf("----------------------------------\n");
 
-        
         switch (x)
         {
         case 1:
-            createTabel();
+            CreateTabel();
             break;
         case 2:
-            listTabels();
+            ListTabels();
             break;
         case 3:
             tabel = GetTabel();
-            tabel = insertData(tabel);
+            tabel = InsertData(tabel);
             SetTabel(tabel);
             break;
         case 4:
-            readData();
+            ReadData();
+            break;
+        case 5:
+            tabel = GetTabel();
+            tabel = DeleteData(tabel);
+            SetTabel(tabel);
             break;
         default:
             break;

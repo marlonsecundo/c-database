@@ -2,14 +2,23 @@
 #include <stdlib.h>
 #include <string.h>
 
-Tabel insertData(Tabel tabel)
+Tabel InsertData(Tabel tabel)
 {
     printf("Colunas a serem preenchidas:\n");
- 
-    char type[20];
+
+    char type[50] = "";
+    char data[300] = "";
+
+    char value[50] = "";
+
+    strcat(data, "{");
+
+    printf("oi\n");
 
     for (int i = 0; i < tabel.colLength; i++)
     {
+        strcat(data, " ");
+
         switch (tabel.columns[i].type)
         {
         case 0:
@@ -26,18 +35,14 @@ Tabel insertData(Tabel tabel)
         }
 
         printf("Coluna: %s Tipo: %s \n", tabel.columns[i].name, type);
+        printf("Digite o valor:");
+        scanf("%s", value);
+
+        strcat(data, tabel.columns[i].name);
+        strcat(data, ":");
+        strcat(data, value);
     }
 
-    char string[500];
-    char data[600];
-    strcpy(data, "");
-
-    printf("\nDigite os dados separados por espaco:\n");
-    setbuf(stdin, NULL);
-    scanf("%[^\n]", string);
-
-    strcat(data, "{ ");
-    strcat(data, string);
     strcat(data, " }\n");
 
     tabel.dataLength += 1;
@@ -46,6 +51,6 @@ Tabel insertData(Tabel tabel)
     strcpy(tabel.data[tabel.dataLength - 1].value, data);
 
     printf("\n\n");
-    
+
     return tabel;
 }
