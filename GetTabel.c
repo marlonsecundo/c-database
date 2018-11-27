@@ -44,7 +44,7 @@ Tabel setColumns(FILE *fileTabel, Tabel tabel)
 
     int i = 0;
 
-    tabel.columns = (Column*) malloc(1 * sizeof(Column));
+    tabel.columns = (Column *)malloc(1 * sizeof(Column));
 
     while (fgets(string, sizeof string, fileTabel) != NULL)
     {
@@ -77,7 +77,7 @@ Tabel setPrimaryKey(FILE *fileTabel, Tabel tabel)
     {
         if (strcmp(string, "]\n") == 0)
         {
-            fgets(string, sizeof string, fileTabel); // Pula o espaço
+            fgets(string, sizeof string, fileTabel);
 
             fgets(string, sizeof string, fileTabel);
 
@@ -92,14 +92,14 @@ Tabel setPrimaryKey(FILE *fileTabel, Tabel tabel)
 
 Tabel setData(FILE *fileTabel, Tabel tabel)
 {
-    char string[100];
+    char string[100] = "";
 
     fseek(fileTabel, 0, SEEK_SET);
 
     int i = 0;
     int exec = 0;
-    
-    tabel.data = (Data*) malloc(sizeof(Data*));
+
+    tabel.data = (Data *)malloc(1 * sizeof(Data));
 
     while (fgets(string, sizeof string, fileTabel) != NULL)
     {

@@ -6,7 +6,9 @@ void SearchData(Tabel tabel)
 {
     int var = 1;
     char colname[100];
-    int value;
+    int valueInt;
+    char valueStr[100] = "";
+    char searchStr[100] = "";
     int searchValue = 0;
     char start[100] = "";
     char end[100] = "";
@@ -37,74 +39,172 @@ void SearchData(Tabel tabel)
     printf("Outro valor - Encerrar pesquisa\n");
     scanf("%d", &var);
 
-    printf("Digite o valor para a pesquisa: ");
-    scanf("%d", &value);
+    if (tabel.columns[i].type == 1)
+    {
+        printf("Digite o valor para a pesquisa: ");
+        scanf("%d", &valueInt);
+        strcat(search, "%s ");
+        strcat(search, colname);
+        strcat(search, ":");
+        strcat(search, "%d");
+        strcat(search, " %s");
+    }
+    else if (tabel.columns[i].type == 0)
+    {
+        printf("Digite o valor para a pesquisa: ");
+        setbuf(stdin, NULL);
+        scanf("%s", &valueStr);
 
-    strcat(search, "%s ");
-    strcat(search, colname);
-    strcat(search, ":");
-    strcat(search, "%d");
-    strcat(search, " %s");
+        strcat(search, "%s ");
+        strcat(search, colname);
+        strcat(search, ":");
+        strcat(search, "%s");
+        strcat(search, " %s");
+    }
 
     switch (var)
     {
     case 1:
-        for (i = 0; i < tabel.dataLength; i++)
+        if (tabel.columns[i].type == 1)
         {
-            sscanf(tabel.data[i].value, search, start, &searchValue, end);
-            if (searchValue > value)
+            for (i = 0; i < tabel.dataLength; i++)
             {
-                printf(tabel.data[i].value);
+                sscanf(tabel.data[i].value, search, start, &searchValue, end);
+                if (searchValue > valueInt)
+                {
+                    printf(tabel.data[i].value);
+                }
+            }
+        }
+        else if (tabel.columns[i].type == 0)
+        {
+            for (i = 0; i < tabel.dataLength; i++)
+            {
+                sscanf(tabel.data[i].value, search, start, searchStr, end);
+                if (searchStr[0] > valueStr[0])
+                {
+                    printf(tabel.data[i].value);
+                }
             }
         }
         break;
     case 2:
-        for (i = 0; i < tabel.dataLength; i++)
+        if (tabel.columns[i].type == 1)
         {
-            sscanf(tabel.data[i].value, search, start, &searchValue, end);
-            if (searchValue >= value)
+            for (i = 0; i < tabel.dataLength; i++)
             {
-                printf(tabel.data[i].value);
+                sscanf(tabel.data[i].value, search, start, &searchValue, end);
+                if (searchValue >= valueInt)
+                {
+                    printf(tabel.data[i].value);
+                }
+            }
+        }
+        else if (tabel.columns[i].type == 0)
+        {
+            for (i = 0; i < tabel.dataLength; i++)
+            {
+                sscanf(tabel.data[i].value, search, start, searchStr, end);
+                if (searchStr[0] >= valueStr[0])
+                {
+                    printf(tabel.data[i].value);
+                }
             }
         }
         break;
     case 3:
-        for (i = 0; i < tabel.dataLength; i++)
+        if (tabel.columns[i].type == 1)
         {
-            sscanf(tabel.data[i].value, search, start, &searchValue, end);
-            if (searchValue == value)
+            for (i = 0; i < tabel.dataLength; i++)
             {
-                printf(tabel.data[i].value);
+                sscanf(tabel.data[i].value, search, start, &searchValue, end);
+                if (searchValue == valueInt)
+                {
+                    printf(tabel.data[i].value);
+                }
+            }
+        }
+        else if (tabel.columns[i].type == 0)
+        {
+            for (i = 0; i < tabel.dataLength; i++)
+            {
+                sscanf(tabel.data[i].value, search, start, searchStr, end);
+                if (strcmp(searchStr, valueStr) == 0)
+                {
+                    printf(tabel.data[i].value);
+                }
             }
         }
         break;
     case 4:
-        for (i = 0; i < tabel.dataLength; i++)
+        if (tabel.columns[i].type == 1)
         {
-            sscanf(tabel.data[i].value, search, start, &searchValue, end);
-            if (searchValue < value)
+            for (i = 0; i < tabel.dataLength; i++)
             {
-                printf(tabel.data[i].value);
+                sscanf(tabel.data[i].value, search, start, &searchValue, end);
+                if (searchValue < valueInt)
+                {
+                    printf(tabel.data[i].value);
+                }
+            }
+        }
+        else if (tabel.columns[i].type == 0)
+        {
+            for (i = 0; i < tabel.dataLength; i++)
+            {
+                sscanf(tabel.data[i].value, search, start, searchStr, end);
+                if (searchStr[0] < valueStr[0])
+                {
+                    printf(tabel.data[i].value);
+                }
             }
         }
         break;
     case 5:
-        for (i = 0; i < tabel.dataLength; i++)
+        if (tabel.columns[i].type == 1)
         {
-            sscanf(tabel.data[i].value, search, start, &searchValue, end);
-            if (searchValue <= value)
+            for (i = 0; i < tabel.dataLength; i++)
             {
-                printf(tabel.data[i].value);
+                sscanf(tabel.data[i].value, search, start, &searchValue, end);
+                if (searchValue <= valueInt)
+                {
+                    printf(tabel.data[i].value);
+                }
+            }
+        }
+        else if (tabel.columns[i].type == 0)
+        {
+            for (i = 0; i < tabel.dataLength; i++)
+            {
+                sscanf(tabel.data[i].value, search, start, searchStr, end);
+                if (searchStr[0] <= valueStr[0])
+                {
+                    printf(tabel.data[i].value);
+                }
             }
         }
         break;
     case 6:
-        for (i = 0; i < tabel.dataLength; i++)
+        if (tabel.columns[i].type == 1)
         {
-            sscanf(tabel.data[i].value, search, start, &searchValue, end);
-            if (searchValue > value - 5 && searchValue < value + 5)
+            for (i = 0; i < tabel.dataLength; i++)
             {
-                printf(tabel.data[i].value);
+                sscanf(tabel.data[i].value, search, start, &searchValue, end);
+                if (searchValue > valueInt - 5 && searchValue < valueInt + 5)
+                {
+                    printf(tabel.data[i].value);
+                }
+            }
+        }
+        else if (tabel.columns[i].type == 0)
+        {
+            for (i = 0; i < tabel.dataLength; i++)
+            {
+                sscanf(tabel.data[i].value, search, start, searchStr, end);
+                if (searchStr[0] == valueStr[0])
+                {
+                    printf(tabel.data[i].value);
+                }
             }
         }
         break;
