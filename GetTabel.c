@@ -45,6 +45,7 @@ Tabel setColumns(FILE *fileTabel, Tabel tabel)
     int i = 0;
 
     tabel.columns = (Column *)malloc(1 * sizeof(Column));
+    Column *colAux = (Column *)malloc(1 * sizeof(Column));
 
     while (fgets(string, sizeof string, fileTabel) != NULL)
     {
@@ -55,10 +56,15 @@ Tabel setColumns(FILE *fileTabel, Tabel tabel)
 
         sscanf(string, "{ Name:%s Type:%d }", name, &type);
 
-        tabel.columns = (Column *)realloc(tabel.columns, i + 1 * sizeof(Column));
+        colAux = (Column *)malloc(i + 1 * sizeof(Column));
 
-        strcpy(tabel.columns[i].name, name);
-        tabel.columns[i].type = type;
+        for (int j = 0; j < i; j++)
+            colAux[j] = tabel.columns[j];
+
+        strcpy(colAux[i].name, name);
+        colAux[i].type = type;
+
+        tabel.columns = colAux;
 
         i++;
     }
@@ -100,6 +106,7 @@ Tabel setData(FILE *fileTabel, Tabel tabel)
     int exec = 0;
 
     tabel.data = (Data *)malloc(1 * sizeof(Data));
+    Data *dataAux = (Data *)malloc(1 * sizeof(Data));
 
     while (fgets(string, sizeof string, fileTabel) != NULL)
     {
@@ -111,9 +118,14 @@ Tabel setData(FILE *fileTabel, Tabel tabel)
 
         if (exec == 1)
         {
-            tabel.data = (Data *)realloc(tabel.data, i + 1 * sizeof(Data));
+            dataAux = (Data *)malloc(i + 1 * sizeof(Data));
 
-            strcpy(tabel.data[i].value, string);
+            for (int j = 0; j < i; j++)
+                dataAux[j] = tabel.data[j];
+
+            strcpy(dataAux[i].value, string);
+
+            tabel.data = dataAux;
 
             i++;
         }
