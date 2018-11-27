@@ -41,7 +41,7 @@ void SearchData(Tabel tabel)
 
     if (tabel.columns[i].type == 1)
     {
-        printf("Digite o valor para a pesquisa: ");
+        printf("Digite o valor para iniciar a pesquisa: ");
         scanf("%d", &valueInt);
         strcat(search, "%s ");
         strcat(search, colname);
@@ -51,7 +51,7 @@ void SearchData(Tabel tabel)
     }
     else if (tabel.columns[i].type == 0)
     {
-        printf("Digite o valor para a pesquisa: ");
+        printf("Digite um caractere para iniciar a pesquisa (Caso seja a opcao 3, digite a palavra inteira): ");
         setbuf(stdin, NULL);
         scanf("%s", &valueStr);
 

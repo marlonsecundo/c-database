@@ -13,7 +13,6 @@ Tabel InsertData(Tabel tabel)
 
     strcat(data, "{");
 
-    printf("oi\n");
 
     for (int i = 0; i < tabel.colLength; i++)
     {

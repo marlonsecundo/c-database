@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-void deleteTabel()
+void DeleteTabel()
 {
     char erase[100];
-    printf("Qual tabela deletar?\n");
+    printf("Qual tabela deseja deletar?\n");
     scanf("%s", &erase);
     char str[100];
 

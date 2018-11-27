@@ -11,12 +11,13 @@
 #include "SetTabel.c"
 #include "DeleteData.c"
 #include "SearchData.c"
+#include "DeleteTabel.c"
 
 int main()
 {
     int x = 1;
     Tabel tabel;
-    while (x > 0 && x <= 6)
+    while (x > 0 && x <= 7)
     {
         printf("-- Informe o que deseja fazer --\n");
         printf("1 - Criar uma tabela\n");
@@ -25,6 +26,7 @@ int main()
         printf("4 - Mostrar os dados de uma tabela\n");
         printf("5 - Apagar uma linha\n");
         printf("6 - Pesquisar na tabela\n");
+        printf("7 - Deletar uma tabela");
         printf("-- Outro valor - Encerrar o programa --\n");
         scanf("%d", &x);
         printf("----------------------------------\n");
@@ -53,6 +55,9 @@ int main()
         case 6:
             tabel = GetTabel();
             SearchData(tabel);
+            break;
+        case 7:
+            DeleteTabel();
             break;
         default:
             break;
