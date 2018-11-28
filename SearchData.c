@@ -6,7 +6,7 @@ void SearchData(Tabel tabel)
 {
     int var = 1;
     char colname[100];
-    int valueInt;
+    int valueInt = 0;
     char valueStr[100] = "";
     char searchStr[100] = "";
     int searchValue = 0;
@@ -51,7 +51,7 @@ void SearchData(Tabel tabel)
     }
     else if (tabel.columns[i].type == 0)
     {
-        printf("Digite um caractere para iniciar a pesquisa (Caso seja a opcao 3, digite a palavra inteira): ");
+        printf("Digite a palavra: ");
         setbuf(stdin, NULL);
         scanf("%s", &valueStr);
 
@@ -69,6 +69,7 @@ void SearchData(Tabel tabel)
         {
             for (i = 0; i < tabel.dataLength; i++)
             {
+                printf("Data: %s\n", tabel.data[i].value);
                 sscanf(tabel.data[i].value, search, start, &searchValue, end);
                 if (searchValue > valueInt)
                 {
