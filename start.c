@@ -26,7 +26,7 @@ int main()
         printf("4 - Mostrar os dados de uma tabela\n");
         printf("5 - Apagar uma linha\n");
         printf("6 - Pesquisar na tabela\n");
-        printf("7 - Deletar uma tabela");
+        printf("7 - Deletar uma tabela\n");
         printf("-- Outro valor - Encerrar o programa --\n");
         scanf("%d", &x);
         printf("----------------------------------\n");

@@ -7,6 +7,7 @@ void CreateTabel()
     setbuf(stdin, NULL);
 
     Tabel newTabel;
+    char primary[100] = "";
     int i = 0;
 
     printf("\n-- Informe a Tabela a Ser Criada --\n");
@@ -42,16 +43,25 @@ void CreateTabel()
     int p = 0;
     do
     {
-        printf("Qual o numero de coluna de chave primaria?\n");
-        scanf("%d", &newTabel.primary);
+        printf("Qual a coluna de chave primaria?\n");
+        scanf("%s", primary);
 
-        if (newTabel.columns[newTabel.primary].type != 1)
+        int value = 0;
+
+        for (value = 0; value < newTabel.colLength; value++)
+        {
+            if (strcmp(primary, newTabel.columns[value].name) == 0)
+                break;
+        }
+
+        if (newTabel.columns[value].type != 1)
         {
             printf("\n-- Erro --\n");
             printf("A coluna deve ser do tipo inteira\n");
         }
         else
         {
+            newTabel.primary = value;
             p = 1;
         }
 
