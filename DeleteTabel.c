@@ -5,10 +5,11 @@
 void DeleteTabel()
 {
     char erase[100];
+    char erase1[100];
     printf("Qual tabela deseja deletar?\n");
     scanf("%s", &erase);
     char str[100];
-
+    strcpy(erase1, erase);
     strcat(erase, "\n");
     FILE *Erase = fopen("Tabels", "r");
     FILE *Aux = fopen("Help", "w");
@@ -42,8 +43,10 @@ void DeleteTabel()
     fclose(A);
 
     remove("Help");
-    remove(erase);
+    remove(erase1);
 
     fflush(Done);
     fclose(Done);
+
+    printf("-----Tabela apagada com sucesso-----\n\n");
 }
