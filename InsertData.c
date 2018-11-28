@@ -13,7 +13,6 @@ Tabel InsertData(Tabel tabel)
 
     strcat(data, "{");
 
-
     for (int i = 0; i < tabel.colLength; i++)
     {
         strcat(data, " ");
@@ -45,9 +44,17 @@ Tabel InsertData(Tabel tabel)
     strcat(data, " }\n");
 
     tabel.dataLength += 1;
-    tabel.data = (Data *)realloc(tabel.data, tabel.dataLength * sizeof(Data));
 
-    strcpy(tabel.data[tabel.dataLength - 1].value, data);
+    Data *dataAux = (Data *)malloc(tabel.dataLength * sizeof(Data));
+
+    for (int i = 0; i < tabel.dataLength - 1; i++)
+    {
+        dataAux[i] = tabel.data[i];
+    }
+
+    strcpy(dataAux[tabel.dataLength - 1].value, data);
+
+    tabel.data = dataAux;
 
     printf("\n\n");
 

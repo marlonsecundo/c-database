@@ -32,6 +32,12 @@ void CreateTabel()
         printf("Digite o nome da coluna: ");
         scanf("%s", &colName);
 
+        if (strlen(colName) <= 0)
+        {
+            printf("\nErro: Digite algum nome para a tabela \n");
+            return;
+        }
+
         printf("Digite o tipo de dado da coluna (0:Char 1:Int 2:Float 3:Double): ");
         scanf("%d", &colType);
 
@@ -43,7 +49,7 @@ void CreateTabel()
     int p = 0;
     do
     {
-        printf("Qual a coluna de chave primaria?\n");
+        printf("Qual o nome da coluna de chave primaria?\n");
         scanf("%s", primary);
 
         int value = 0;
@@ -52,6 +58,12 @@ void CreateTabel()
         {
             if (strcmp(primary, newTabel.columns[value].name) == 0)
                 break;
+        }
+
+        if (value >= newTabel.colLength)
+        {
+            printf("\n -- Digite uma coluna existente -- \n");
+            continue;
         }
 
         if (newTabel.columns[value].type != 1)

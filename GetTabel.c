@@ -44,8 +44,8 @@ Tabel setColumns(FILE *fileTabel, Tabel tabel)
 
     int i = 0;
 
-    tabel.columns = (Column *)malloc(1 * sizeof(Column));
-    Column *colAux = (Column *)malloc(1 * sizeof(Column));
+    tabel.columns = NULL;
+    Column *colAux = NULL;
 
     while (fgets(string, sizeof string, fileTabel) != NULL)
     {
@@ -56,7 +56,7 @@ Tabel setColumns(FILE *fileTabel, Tabel tabel)
 
         sscanf(string, "{ Name:%s Type:%d }", name, &type);
 
-        colAux = (Column *)malloc(i + 1 * sizeof(Column));
+        colAux = (Column *)malloc((i + 1) * sizeof(Column));
 
         for (int j = 0; j < i; j++)
             colAux[j] = tabel.columns[j];
@@ -67,6 +67,8 @@ Tabel setColumns(FILE *fileTabel, Tabel tabel)
         tabel.columns = colAux;
 
         i++;
+
+        colAux = NULL;
     }
 
     tabel.colLength = i;
@@ -105,8 +107,8 @@ Tabel setData(FILE *fileTabel, Tabel tabel)
     int i = 0;
     int exec = 0;
 
-    tabel.data = (Data *)malloc(1 * sizeof(Data));
-    Data *dataAux = (Data *)malloc(1 * sizeof(Data));
+    tabel.data = NULL;
+    Data *dataAux = NULL;
 
     while (fgets(string, sizeof string, fileTabel) != NULL)
     {
@@ -118,7 +120,7 @@ Tabel setData(FILE *fileTabel, Tabel tabel)
 
         if (exec == 1)
         {
-            dataAux = (Data *)malloc(i + 1 * sizeof(Data));
+            dataAux = (Data *)malloc((i + 1) * sizeof(Data));
 
             for (int j = 0; j < i; j++)
                 dataAux[j] = tabel.data[j];
@@ -128,6 +130,8 @@ Tabel setData(FILE *fileTabel, Tabel tabel)
             tabel.data = dataAux;
 
             i++;
+
+            dataAux = NULL;
         }
     }
 
