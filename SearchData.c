@@ -6,8 +6,12 @@ void SearchData(Tabel tabel)
 {
     int var = 1;
     char colname[100];
+    char aux[100] = "";
+    char aux2[100] = "";
     int valueInt = 0;
+    float valueFlo = 0;
     char valueStr[100] = "";
+    float searchFlo = 0;
     char searchStr[100] = "";
     int searchValue = 0;
     char start[100] = "";
@@ -29,6 +33,7 @@ void SearchData(Tabel tabel)
     }
     FILE *fileSearch = fopen(tabel.name, "r");
 
+
     printf("---- Selecione o estilo de pesquisa ----\n");
     printf("1 - Pesquisar valores maiores que o informado\n");
     printf("2 - Pesquisar valores maiores ou iguais ao informado\n");
@@ -38,30 +43,45 @@ void SearchData(Tabel tabel)
     printf("6 - Pesquisar valores proximos ao informado\n");
     printf("Outro valor - Encerrar pesquisa\n");
     scanf("%d", &var);
-
-    if (tabel.columns[i].type == 1)
+    
+    if (var >= 1 && var <=6)
     {
-        printf("Digite o valor para iniciar a pesquisa: ");
-        scanf("%d", &valueInt);
-        strcat(search, "%s ");
-        strcat(search, colname);
-        strcat(search, ":");
-        strcat(search, "%d");
-        strcat(search, " %s");
-    }
-    else if (tabel.columns[i].type == 0)
-    {
-        printf("Digite a palavra: ");
-        setbuf(stdin, NULL);
-        scanf("%s", &valueStr);
+        if (tabel.columns[i].type == 1)
+        {
+            printf("Digite o valor para iniciar a pesquisa: ");
+            setbuf(stdin, NULL);
+            scanf("%d", &valueInt);
 
-        strcat(search, "%s ");
-        strcat(search, colname);
-        strcat(search, ":");
-        strcat(search, "%s");
-        strcat(search, " %s");
-    }
+            strcat(search, "%s ");
+            strcat(search, colname);
+            strcat(search, ":");
+            strcat(search, "%d");
+            strcat(search, " %s");
+        }
+        else if (tabel.columns[i].type == 0)
+        {
+            printf("Digite a palavra: ");
+            setbuf(stdin, NULL);
+            scanf("%s", &valueStr);
 
+            strcat(search, "%s ");
+            strcat(search, colname);
+            strcat(search, ":");
+            strcat(search, "%s");
+            strcat(search, " %s");
+        }
+        else if (tabel.columns[i].type == 2)
+        {
+            printf("Digite o valor para iniciar a pesquisa: ");
+            setbuf(stdin, NULL);
+            scanf("%f", &valueFlo);
+            strcat(search, "%s ");
+            strcat(search, colname);
+            strcat(search, ":");
+            strcat(search, "%f");
+            strcat(search, " %s");
+        }
+    }
     switch (var)
     {
     case 1:
@@ -69,8 +89,9 @@ void SearchData(Tabel tabel)
         {
             for (i = 0; i < tabel.dataLength; i++)
             {
-                printf("Data: %s\n", tabel.data[i].value);
                 sscanf(tabel.data[i].value, search, start, &searchValue, end);
+                printf("%d", searchValue);
+                printf("$d", valueInt);
                 if (searchValue > valueInt)
                 {
                     printf(tabel.data[i].value);
@@ -83,6 +104,17 @@ void SearchData(Tabel tabel)
             {
                 sscanf(tabel.data[i].value, search, start, searchStr, end);
                 if (searchStr[0] > valueStr[0])
+                {
+                    printf(tabel.data[i].value);
+                }
+            }
+        }
+        else if (tabel.columns[i].type == 2)
+        {
+            for (i = 0; i < tabel.dataLength; i++)
+            {
+                sscanf(tabel.data[i].value, search, start, &searchFlo, end);
+                if (searchFlo > valueFlo)
                 {
                     printf(tabel.data[i].value);
                 }
@@ -112,6 +144,17 @@ void SearchData(Tabel tabel)
                 }
             }
         }
+        else if (tabel.columns[i].type == 2)
+        {
+            for (i = 0; i < tabel.dataLength; i++)
+            {
+                sscanf(tabel.data[i].value, search, start, &searchFlo, end);
+                if (searchFlo >= valueFlo)
+                {
+                    printf(tabel.data[i].value);
+                }
+            }
+        }
         break;
     case 3:
         if (tabel.columns[i].type == 1)
@@ -131,6 +174,17 @@ void SearchData(Tabel tabel)
             {
                 sscanf(tabel.data[i].value, search, start, searchStr, end);
                 if (strcmp(searchStr, valueStr) == 0)
+                {
+                    printf(tabel.data[i].value);
+                }
+            }
+        }
+        else if (tabel.columns[i].type == 2)
+        {
+            for (i = 0; i < tabel.dataLength; i++)
+            {
+                sscanf(tabel.data[i].value, search, start, &searchFlo, end);
+                if (searchFlo == valueFlo)
                 {
                     printf(tabel.data[i].value);
                 }
@@ -160,6 +214,17 @@ void SearchData(Tabel tabel)
                 }
             }
         }
+        else if (tabel.columns[i].type == 2)
+        {
+            for (i = 0; i < tabel.dataLength; i++)
+            {
+                sscanf(tabel.data[i].value, search, start, &searchFlo, end);
+                if (searchFlo < valueFlo)
+                {
+                    printf(tabel.data[i].value);
+                }
+            }
+        }
         break;
     case 5:
         if (tabel.columns[i].type == 1)
@@ -179,6 +244,17 @@ void SearchData(Tabel tabel)
             {
                 sscanf(tabel.data[i].value, search, start, searchStr, end);
                 if (searchStr[0] <= valueStr[0])
+                {
+                    printf(tabel.data[i].value);
+                }
+            }
+        }
+        else if (tabel.columns[i].type == 2)
+        {
+            for (i = 0; i < tabel.dataLength; i++)
+            {
+                sscanf(tabel.data[i].value, search, start, &searchFlo, end);
+                if (searchFlo <= valueFlo)
                 {
                     printf(tabel.data[i].value);
                 }
@@ -208,8 +284,20 @@ void SearchData(Tabel tabel)
                 }
             }
         }
+        else if (tabel.columns[i].type == 2)
+        {
+            for (i = 0; i < tabel.dataLength; i++)
+            {
+                sscanf(tabel.data[i].value, search, start, &searchFlo, end);
+                if (searchFlo > valueFlo - 5 && searchFlo < valueFlo + 5)
+                {
+                    printf(tabel.data[i].value);
+                }
+            }
+        }
         break;
     default:
+        printf("\n");
         break;
     }
 }

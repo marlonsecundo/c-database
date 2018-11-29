@@ -1,9 +1,0 @@
-Colunas [
-{ Name:nome Type:0 }
-{ Name:matricula Type:1 }
-]
-
-Chave Primaria:1
-
-Data
-{ matricula:111 nome:marlon }
