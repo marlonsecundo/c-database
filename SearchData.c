@@ -7,6 +7,9 @@ void SearchData(Tabel tabel)
     int var = 1;
     char colname[100];
     int valueInt = 0;
+    char *aux;
+    char *aux2;
+    int x;
     float valueFlo = 0;
     char valueStr[100] = "";
     float searchFlo = 0;
@@ -41,7 +44,7 @@ void SearchData(Tabel tabel)
     printf("6 - Pesquisar valores proximos ao informado\n");
     printf("Outro valor - Encerrar pesquisa\n");
     scanf("%d", &var);
-
+    strcat(colname, ":");
     if (var >= 1 && var <= 6)
     {
         if (tabel.columns[i].type == 1)
@@ -51,7 +54,6 @@ void SearchData(Tabel tabel)
             scanf("%d", &valueInt);
 
             strcat(search, colname);
-            strcat(search, ":");
             strcat(search, "%d");
         }
         else if (tabel.columns[i].type == 0)
@@ -61,7 +63,6 @@ void SearchData(Tabel tabel)
             scanf("%s", &valueStr);
 
             strcat(search, colname);
-            strcat(search, ":");
             strcat(search, "%s");
         }
         else if (tabel.columns[i].type == 2)
@@ -71,7 +72,6 @@ void SearchData(Tabel tabel)
             scanf("%f", &valueFlo);
 
             strcat(search, colname);
-            strcat(search, ":");
             strcat(search, "%f");
         }
     }
@@ -201,6 +201,7 @@ void SearchData(Tabel tabel)
         {
             for (i = 0; i < tabel.dataLength; i++)
             {
+                scanValue = strstr(tabel.data[i].value, colname);
                 sscanf(scanValue, search, &searchValue);
                 if (searchValue < valueInt)
                 {
@@ -212,6 +213,7 @@ void SearchData(Tabel tabel)
         {
             for (i = 0; i < tabel.dataLength; i++)
             {
+                scanValue = strstr(tabel.data[i].value, colname);
                 sscanf(scanValue, search, searchStr);
                 if (searchStr[0] < valueStr[0])
                 {
@@ -223,6 +225,7 @@ void SearchData(Tabel tabel)
         {
             for (i = 0; i < tabel.dataLength; i++)
             {
+                scanValue = strstr(tabel.data[i].value, colname);
                 sscanf(scanValue, search, &searchFlo);
                 if (searchFlo < valueFlo)
                 {
@@ -236,6 +239,7 @@ void SearchData(Tabel tabel)
         {
             for (i = 0; i < tabel.dataLength; i++)
             {
+                scanValue = strstr(tabel.data[i].value, colname);
                 sscanf(scanValue, search, &searchValue);
                 if (searchValue <= valueInt)
                 {
@@ -247,6 +251,7 @@ void SearchData(Tabel tabel)
         {
             for (i = 0; i < tabel.dataLength; i++)
             {
+                scanValue = strstr(tabel.data[i].value, colname);
                 sscanf(scanValue, search, searchStr);
                 if (searchStr[0] <= valueStr[0])
                 {
@@ -258,6 +263,7 @@ void SearchData(Tabel tabel)
         {
             for (i = 0; i < tabel.dataLength; i++)
             {
+                scanValue = strstr(tabel.data[i].value, colname);
                 sscanf(scanValue, search, &searchFlo);
                 if (searchFlo <= valueFlo)
                 {
@@ -271,6 +277,7 @@ void SearchData(Tabel tabel)
         {
             for (i = 0; i < tabel.dataLength; i++)
             {
+                scanValue = strstr(tabel.data[i].value, colname);
                 sscanf(scanValue, search, &searchValue);
                 if (searchValue > valueInt - 5 && searchValue < valueInt + 5)
                 {
@@ -282,10 +289,25 @@ void SearchData(Tabel tabel)
         {
             for (i = 0; i < tabel.dataLength; i++)
             {
-                sscanf(scanValue, search, searchStr);
-                if (searchStr[0] == valueStr[0])
+                aux = strstr(tabel.data[i].value, colname);
+                if (aux != NULL)
                 {
-                    printf(tabel.data[i].value);
+                    sscanf(aux, search, searchStr);
+                    aux2 = strstr(searchStr, valueStr);
+
+                    if(aux2 != NULL)
+                    {
+                        x = strlen(aux2);
+                        if (x > 0)
+                        {
+                            printf(tabel.data[i].value);
+                        }
+                        
+                    }
+                    else
+                    {
+                        printf("Nenhum nome encontrado\n\n");    
+                    }
                 }
             }
         }
@@ -293,6 +315,7 @@ void SearchData(Tabel tabel)
         {
             for (i = 0; i < tabel.dataLength; i++)
             {
+                scanValue = strstr(tabel.data[i].value, colname);
                 sscanf(scanValue, search, &searchFlo);
                 if (searchFlo > valueFlo - 5 && searchFlo < valueFlo + 5)
                 {
