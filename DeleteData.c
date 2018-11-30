@@ -31,6 +31,12 @@ Tabel DeleteData(Tabel tabel)
         exec++;
         if (strstr(tabel.data[i].value, data) == NULL)
         {
+            if (exec == tabel.dataLength)
+            {
+                j = exec;
+                break;
+            }
+
             strcpy(tabelData[j].value, tabel.data[i].value);
             j++;
         }
