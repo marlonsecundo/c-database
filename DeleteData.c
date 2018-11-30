@@ -42,7 +42,7 @@ Tabel DeleteData(Tabel tabel)
         }
     }
 
-    if (exec < j)
+    if (j < exec)
     {
         tabel.data = tabelData;
         tabel.dataLength -= 1;
