@@ -28,18 +28,15 @@ Tabel DeleteData(Tabel tabel)
 
     for (int i = 0; i < tabel.dataLength; i++)
     {
+        exec++;
         if (strstr(tabel.data[i].value, data) == NULL)
         {
             strcpy(tabelData[j].value, tabel.data[i].value);
             j++;
         }
-        else
-        {
-            exec = 1;
-        }
     }
 
-    if (exec == 1)
+    if (exec < j)
     {
         tabel.data = tabelData;
         tabel.dataLength -= 1;

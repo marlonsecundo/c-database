@@ -59,7 +59,7 @@ Tabel InsertData(Tabel tabel)
     strcat(scanValue, colName);
     strcat(scanValue, "%s");
 
-    for (int i = 0; i < tabel.dataLength - 1; i++)
+    for (int i = 0; i < tabel.dataLength; i++)
     {
         search = strstr(tabel.data[i].value, colName);
         sscanf(search, scanValue, searchValue);
