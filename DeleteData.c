@@ -23,24 +23,27 @@ Tabel DeleteData(Tabel tabel)
     strcat(data, primary);
 
     int j = 0;
-
-
-    Data *tabelData = (Data *)malloc(sizeof(Data));
-
-    tabelData = (Data *)realloc(tabelData, (tabel.dataLength - 1) * sizeof(Data));
+    int exec = 0;
+    Data *tabelData = (Data *)malloc((tabel.dataLength - 1) * sizeof(Data));
 
     for (int i = 0; i < tabel.dataLength; i++)
     {
         if (strstr(tabel.data[i].value, data) == NULL)
         {
-            printf("Palavra: %s\n", tabel.data[i].value);
             strcpy(tabelData[j].value, tabel.data[i].value);
             j++;
         }
+        else
+        {
+            exec = 1;
+        }
     }
 
-    tabel.data = tabelData;
-    tabel.dataLength -= 1;
-    
+    if (exec == 1)
+    {
+        tabel.data = tabelData;
+        tabel.dataLength -= 1;
+    }
+
     return tabel;
 }
