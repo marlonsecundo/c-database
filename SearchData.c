@@ -11,7 +11,9 @@ void SearchData(Tabel tabel)
     char *aux2;
     int x;
     float valueFlo = 0;
+    double valueDou = 0;
     char valueStr[100] = "";
+    double searchDou = 0;
     float searchFlo = 0;
     char searchStr[100] = "";
     int searchValue = 0;
@@ -74,6 +76,15 @@ void SearchData(Tabel tabel)
             strcat(search, colname);
             strcat(search, "%f");
         }
+        else if (tabel.columns[i].type == 3)
+        {
+            printf("Digite o valor para iniciar a pesquisa: ");
+            setbuf(stdin, NULL);
+            scanf("%lf", &valueDou);
+
+            strcat(search, colname);
+            strcat(search, "%lf");
+        }
     }
     switch (var)
     {
@@ -89,6 +100,10 @@ void SearchData(Tabel tabel)
                 {
                     printf(tabel.data[i].value);
                 }
+                else
+                {
+                    printf("Nenhum numero encontrado\n\n");    
+                }
             }
         }
         else if (tabel.columns[i].type == 0)
@@ -102,6 +117,10 @@ void SearchData(Tabel tabel)
                 {
                     printf(tabel.data[i].value);
                 }
+                else
+                {
+                    printf("Nenhum nome encontrado\n\n");    
+                }
             }
         }
         else if (tabel.columns[i].type == 2)
@@ -114,6 +133,27 @@ void SearchData(Tabel tabel)
                 if (searchFlo > valueFlo)
                 {
                     printf(tabel.data[i].value);
+                }
+                else
+                {
+                    printf("Nenhum numero encontrado\n\n");    
+                }
+            }
+        }
+        else if (tabel.columns[i].type == 3)
+        {
+            for (i = 0; i < tabel.dataLength; i++)
+            {
+                scanValue = strstr(tabel.data[i].value, colname);
+                sscanf(scanValue, search, &searchDou);
+
+                if (searchDou > valueDou)
+                {
+                    printf(tabel.data[i].value);
+                }
+                else
+                {
+                    printf("Nenhum numero encontrado\n\n");    
                 }
             }
         }
@@ -130,6 +170,10 @@ void SearchData(Tabel tabel)
                 {
                     printf(tabel.data[i].value);
                 }
+                else
+                {
+                    printf("Nenhum numero encontrado\n\n");    
+                }
             }
         }
         else if (tabel.columns[i].type == 0)
@@ -143,6 +187,10 @@ void SearchData(Tabel tabel)
                 {
                     printf(tabel.data[i].value);
                 }
+                else
+                {
+                    printf("Nenhum nome encontrado\n\n");    
+                }
             }
         }
         else if (tabel.columns[i].type == 2)
@@ -154,6 +202,27 @@ void SearchData(Tabel tabel)
                 if (searchFlo >= valueFlo)
                 {
                     printf(tabel.data[i].value);
+                }
+                else
+                {
+                    printf("Nenhum numero encontrado\n\n");    
+                }
+            }
+        }
+        else if (tabel.columns[i].type == 3)
+        {
+            for (i = 0; i < tabel.dataLength; i++)
+            {
+                scanValue = strstr(tabel.data[i].value, colname);
+                sscanf(scanValue, search, &searchDou);
+
+                if (searchDou >= valueDou)
+                {
+                    printf(tabel.data[i].value);
+                }
+                else
+                {
+                    printf("Nenhum numero encontrado\n\n");    
                 }
             }
         }
@@ -169,6 +238,10 @@ void SearchData(Tabel tabel)
                 {
                     printf(tabel.data[i].value);
                 }
+                else
+                {
+                    printf("Nenhum numero encontrado\n\n");    
+                }
             }
         }
         else if (tabel.columns[i].type == 0)
@@ -181,6 +254,10 @@ void SearchData(Tabel tabel)
                 {
                     printf(tabel.data[i].value);
                 }
+                else
+                {
+                    printf("Nenhum nome encontrado\n\n");    
+                }
             }
         }
         else if (tabel.columns[i].type == 2)
@@ -192,6 +269,27 @@ void SearchData(Tabel tabel)
                 if (searchFlo == valueFlo)
                 {
                     printf(tabel.data[i].value);
+                }
+                else
+                {
+                    printf("Nenhum numero encontrado\n\n");    
+                }
+            }
+        }
+        else if (tabel.columns[i].type == 3)
+        {
+            for (i = 0; i < tabel.dataLength; i++)
+            {
+                scanValue = strstr(tabel.data[i].value, colname);
+                sscanf(scanValue, search, &searchDou);
+
+                if (searchDou == valueDou)
+                {
+                    printf(tabel.data[i].value);
+                }
+                else
+                {
+                    printf("Nenhum numero encontrado\n\n");    
                 }
             }
         }
@@ -207,6 +305,10 @@ void SearchData(Tabel tabel)
                 {
                     printf(tabel.data[i].value);
                 }
+                else
+                {
+                    printf("Nenhum numero encontrado\n\n");    
+                }
             }
         }
         else if (tabel.columns[i].type == 0)
@@ -219,6 +321,10 @@ void SearchData(Tabel tabel)
                 {
                     printf(tabel.data[i].value);
                 }
+                else
+                {
+                    printf("Nenhum nome encontrado\n\n");    
+                }
             }
         }
         else if (tabel.columns[i].type == 2)
@@ -230,6 +336,27 @@ void SearchData(Tabel tabel)
                 if (searchFlo < valueFlo)
                 {
                     printf(tabel.data[i].value);
+                }
+                else
+                {
+                    printf("Nenhum numero encontrado\n\n");    
+                }
+            }
+        }
+        else if (tabel.columns[i].type == 3)
+        {
+            for (i = 0; i < tabel.dataLength; i++)
+            {
+                scanValue = strstr(tabel.data[i].value, colname);
+                sscanf(scanValue, search, &searchDou);
+
+                if (searchDou < valueDou)
+                {
+                    printf(tabel.data[i].value);
+                }
+                else
+                {
+                    printf("Nenhum numero encontrado\n\n");    
                 }
             }
         }
@@ -245,6 +372,10 @@ void SearchData(Tabel tabel)
                 {
                     printf(tabel.data[i].value);
                 }
+                else
+                {
+                    printf("Nenhum numero encontrado\n\n");    
+                }
             }
         }
         else if (tabel.columns[i].type == 0)
@@ -257,6 +388,10 @@ void SearchData(Tabel tabel)
                 {
                     printf(tabel.data[i].value);
                 }
+                else
+                {
+                    printf("Nenhum nome encontrado\n\n");    
+                }
             }
         }
         else if (tabel.columns[i].type == 2)
@@ -268,6 +403,27 @@ void SearchData(Tabel tabel)
                 if (searchFlo <= valueFlo)
                 {
                     printf(tabel.data[i].value);
+                }
+                else
+                {
+                    printf("Nenhum numero encontrado\n\n");    
+                }
+            }
+        }
+        else if (tabel.columns[i].type == 3)
+        {
+            for (i = 0; i < tabel.dataLength; i++)
+            {
+                scanValue = strstr(tabel.data[i].value, colname);
+                sscanf(scanValue, search, &searchDou);
+
+                if (searchDou <= valueDou)
+                {
+                    printf(tabel.data[i].value);
+                }
+                else
+                {
+                    printf("Nenhum numero encontrado\n\n");    
                 }
             }
         }
@@ -282,6 +438,10 @@ void SearchData(Tabel tabel)
                 if (searchValue > valueInt - 5 && searchValue < valueInt + 5)
                 {
                     printf(tabel.data[i].value);
+                }
+                else
+                {
+                    printf("Nenhum numero encontrado\n\n");    
                 }
             }
         }
@@ -321,11 +481,31 @@ void SearchData(Tabel tabel)
                 {
                     printf(tabel.data[i].value);
                 }
+                else
+                {
+                    printf("Nenhum numero encontrado\n\n");    
+                }
+            }
+        }
+        else if (tabel.columns[i].type == 3)
+        {
+            for (i = 0; i < tabel.dataLength; i++)
+            {
+                scanValue = strstr(tabel.data[i].value, colname);
+                sscanf(scanValue, search, &searchDou);
+                if (searchDou > valueDou - 5 && searchDou < valueDou + 5)
+                {
+                    printf(tabel.data[i].value);
+                }
+                else
+                {
+                    printf("Nenhum numero encontrado\n\n");    
+                }
             }
         }
         break;
     default:
-        printf("\n");
+        printf("\n\n");
         break;
     }
 }

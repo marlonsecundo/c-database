@@ -24,7 +24,6 @@ Tabel DeleteData(Tabel tabel)
 
     int j = 0;
 
-    printf("Tamanho %s\n", data);
 
     Data *tabelData = (Data *)malloc(sizeof(Data));
 
