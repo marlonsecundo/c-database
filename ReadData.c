@@ -4,6 +4,8 @@
 
 void ReadData()
 {
+    system("cls");
+
     char tabel[60];
     printf("Digite o nome da tabela: ");
     scanf("%s", &tabel);
@@ -12,15 +14,23 @@ void ReadData()
 
     char read[100];
 
+    int i = -1;
+
     while (fgets(read, sizeof read, Tabel) != NULL)
     {
         if (strcmp(read, "Data\n") == 0)
         {
+            i = 1;
             while (fgets(read, sizeof read, Tabel) != NULL)
             {
                 printf(read);
             }
         }
+    }
+
+    if (i == -1)
+    {
+        printf("Digite uma tabela valida\n");
     }
 
     fclose(Tabel);

@@ -4,6 +4,14 @@
 
 void SearchData(Tabel tabel)
 {
+    system("cls");
+
+    if (tabel.colLength == 0)
+    {
+        printf("Digite uma tabela valida\n");
+        return;
+    }
+
     int var = 1;
     char colname[100];
     int valueInt = 0;
@@ -102,7 +110,7 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum numero encontrado\n\n");    
+                    printf("Nenhum numero encontrado\n\n");
                 }
             }
         }
@@ -119,7 +127,7 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum nome encontrado\n\n");    
+                    printf("Nenhum nome encontrado\n\n");
                 }
             }
         }
@@ -136,7 +144,7 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum numero encontrado\n\n");    
+                    printf("Nenhum numero encontrado\n\n");
                 }
             }
         }
@@ -153,7 +161,7 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum numero encontrado\n\n");    
+                    printf("Nenhum numero encontrado\n\n");
                 }
             }
         }
@@ -172,7 +180,7 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum numero encontrado\n\n");    
+                    printf("Nenhum numero encontrado\n\n");
                 }
             }
         }
@@ -189,7 +197,7 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum nome encontrado\n\n");    
+                    printf("Nenhum nome encontrado\n\n");
                 }
             }
         }
@@ -205,7 +213,7 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum numero encontrado\n\n");    
+                    printf("Nenhum numero encontrado\n\n");
                 }
             }
         }
@@ -222,7 +230,7 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum numero encontrado\n\n");    
+                    printf("Nenhum numero encontrado\n\n");
                 }
             }
         }
@@ -240,7 +248,7 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum numero encontrado\n\n");    
+                    printf("Nenhum numero encontrado\n\n");
                 }
             }
         }
@@ -256,7 +264,7 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum nome encontrado\n\n");    
+                    printf("Nenhum nome encontrado\n\n");
                 }
             }
         }
@@ -272,7 +280,7 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum numero encontrado\n\n");    
+                    printf("Nenhum numero encontrado\n\n");
                 }
             }
         }
@@ -289,7 +297,7 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum numero encontrado\n\n");    
+                    printf("Nenhum numero encontrado\n\n");
                 }
             }
         }
@@ -307,7 +315,7 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum numero encontrado\n\n");    
+                    printf("Nenhum numero encontrado\n\n");
                 }
             }
         }
@@ -323,7 +331,7 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum nome encontrado\n\n");    
+                    printf("Nenhum nome encontrado\n\n");
                 }
             }
         }
@@ -339,7 +347,7 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum numero encontrado\n\n");    
+                    printf("Nenhum numero encontrado\n\n");
                 }
             }
         }
@@ -356,7 +364,7 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum numero encontrado\n\n");    
+                    printf("Nenhum numero encontrado\n\n");
                 }
             }
         }
@@ -374,7 +382,7 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum numero encontrado\n\n");    
+                    printf("Nenhum numero encontrado\n\n");
                 }
             }
         }
@@ -390,7 +398,7 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum nome encontrado\n\n");    
+                    printf("Nenhum nome encontrado\n\n");
                 }
             }
         }
@@ -406,7 +414,7 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum numero encontrado\n\n");    
+                    printf("Nenhum numero encontrado\n\n");
                 }
             }
         }
@@ -423,7 +431,7 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum numero encontrado\n\n");    
+                    printf("Nenhum numero encontrado\n\n");
                 }
             }
         }
@@ -441,7 +449,7 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum numero encontrado\n\n");    
+                    printf("Nenhum numero encontrado\n\n");
                 }
             }
         }
@@ -455,18 +463,17 @@ void SearchData(Tabel tabel)
                     sscanf(aux, search, searchStr);
                     aux2 = strstr(searchStr, valueStr);
 
-                    if(aux2 != NULL)
+                    if (aux2 != NULL)
                     {
                         x = strlen(aux2);
                         if (x > 0)
                         {
                             printf(tabel.data[i].value);
                         }
-                        
                     }
                     else
                     {
-                        printf("Nenhum nome encontrado\n\n");    
+                        printf("Nenhum nome encontrado\n\n");
                     }
                 }
             }
@@ -483,7 +490,7 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum numero encontrado\n\n");    
+                    printf("Nenhum numero encontrado\n\n");
                 }
             }
         }
@@ -499,7 +506,7 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum numero encontrado\n\n");    
+                    printf("Nenhum numero encontrado\n\n");
                 }
             }
         }

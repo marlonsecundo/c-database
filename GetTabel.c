@@ -13,8 +13,33 @@ Tabel GetTabel()
     scanf("%s", tabelName);
     printf("\n");
 
-    FILE *fileTabel = fopen(tabelName, "r");
+    char string[100] = "";
+
+    FILE *tabels = fopen("Tabels", "r");
+
+    int i = 0;
+
     Tabel tabel = {};
+
+    char value[100] = "";
+    while (fgets(string, sizeof string, tabels) != NULL)
+    {
+        i++;
+        strcpy(value, tabelName);
+        strcat(value, "\n");
+        if (strcmp(string, value) == 0)
+        {
+            i = -1;
+            break;
+        }
+    }
+
+    if (i == 0 || i != -1)
+    {
+        return tabel;
+    }
+
+    FILE *fileTabel = fopen(tabelName, "r");
 
     strcpy(tabel.name, tabelName);
 

@@ -16,6 +16,7 @@
 int main()
 {
     int x = 1;
+    char term;
     Tabel tabel;
     while (x > 0 && x <= 7)
     {
@@ -28,8 +29,16 @@ int main()
         printf("6 - Pesquisar na tabela\n");
         printf("7 - Deletar uma tabela\n");
         printf("-- Outro valor - Encerrar o programa --\n");
-        scanf("%d", &x);
         printf("----------------------------------\n");
+
+        if (scanf("%d%c", &x, &term) != 2 || term != '\n')
+        {
+            system("cls");
+            printf("\nHaha não bugou\n");
+            x = 1;
+            setbuf(stdin, NULL);
+            continue;
+        }
 
         switch (x)
         {

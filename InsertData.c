@@ -4,6 +4,11 @@
 
 Tabel InsertData(Tabel tabel)
 {
+    if (tabel.colLength == 0)
+    {
+        return tabel;
+    }
+
     printf("Colunas a serem preenchidas:\n");
 
     char type[50] = "";

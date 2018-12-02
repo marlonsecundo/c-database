@@ -4,6 +4,11 @@
 
 Tabel DeleteData(Tabel tabel)
 {
+    if (tabel.colLength == 0)
+    {
+        return tabel;
+    }
+
     printf("\n -- Apagar Dados Na Tabela -- \n");
     char primary[100] = "";
 

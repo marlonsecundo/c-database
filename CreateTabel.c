@@ -9,6 +9,7 @@ void CreateTabel()
     Tabel newTabel;
     char primary[100] = "";
     int i = 0;
+    char err = 0;
 
     printf("\n-- Informe a Tabela a Ser Criada --\n");
 
@@ -16,7 +17,23 @@ void CreateTabel()
     scanf("%s", &newTabel.name);
 
     printf("Digite o numero de colunas: ");
-    scanf("%d", &newTabel.colLength);
+
+    if (scanf("%d%c", &newTabel.colLength, &err) != 2 || err != '\n')
+    {
+        system("cls");
+        printf("\nInsira um número inteiro\n\n");
+        setbuf(stdin, NULL);
+        return;
+    }
+    err = 0;
+
+    if (newTabel.colLength <= 0)
+    {
+        system("cls");
+        printf("\nDigite pelo o menos 1 coluna\n");
+        return;
+    }
+
     printf("\n");
 
     printf("-- Informe os Dados das Colunas --\n");
@@ -41,9 +58,33 @@ void CreateTabel()
         printf("Digite o tipo de dado da coluna (0:Char 1:Int 2:Float 3:Double): ");
         scanf("%d", &colType);
 
+        if (scanf("%d%c", &colType, &err) != 2 || err != '\n')
+        {
+            system("cls");
+            printf("\nHaha nao bugou\n\n");
+            printf("\nInsira um número inteiro\n");
+            setbuf(stdin, NULL);
+            return;
+        }
+        err = 0;
+
         strcpy(newTabel.columns[i].name, colName);
 
         newTabel.columns[i].type = colType;
+    }
+
+    for (int i = 0; i < newTabel.colLength; i++)
+    {
+        if (newTabel.columns[i].type == 1)
+        {
+            break;
+        }
+
+        if (i == newTabel.colLength)
+        {
+            printf("Crie um tabela com pelo menos uma coluna candidata a chave primaria\n");
+            return;
+        }
     }
 
     int p = 0;
@@ -57,10 +98,13 @@ void CreateTabel()
         for (value = 0; value < newTabel.colLength; value++)
         {
             if (strcmp(primary, newTabel.columns[value].name) == 0)
+            {
+                value = -1;
                 break;
+            }
         }
 
-        if (value >= newTabel.colLength)
+        if (value != -1)
         {
             printf("\n -- Digite uma coluna existente -- \n");
             continue;

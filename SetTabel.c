@@ -3,9 +3,15 @@
 #include <string.h>
 
 void SetTabel(Tabel tabel)
-{ 
+{
+    if (tabel.colLength == 0)
+    {
+        system("cls");
+        printf("Digite uma tabela valida\n\n");
+        return;
+    }
+
     setbuf(stdin, NULL);
-    setbuf(stdout, NULL);
 
     FILE *fileTabel = fopen(tabel.name, "w");
 
@@ -27,5 +33,4 @@ void SetTabel(Tabel tabel)
     }
 
     fclose(fileTabel);
-
 }
