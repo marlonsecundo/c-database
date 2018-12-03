@@ -4,6 +4,7 @@
 
 void ListTabels()
 {
+    system("cls");
     printf("\n-- Tabelas Existentes --\n");
     char x[100];
     FILE *Tabels = fopen("Tabels", "r");

@@ -21,7 +21,7 @@ void CreateTabel()
     if (scanf("%d%c", &newTabel.colLength, &err) != 2 || err != '\n')
     {
         system("cls");
-        printf("\nInsira um número inteiro\n\n");
+        printf("\nInsira um numero inteiro\n\n");
         setbuf(stdin, NULL);
         return;
     }
@@ -150,4 +150,7 @@ void CreateTabel()
     fclose(Tabels);
     fclose(fileTabel);
     printf("\n");
+
+    system("cls");
+    printf("Tabela criada\n\n");
 }

@@ -126,7 +126,8 @@ Tabel InsertData(Tabel tabel)
 
     tabel.data = dataAux;
 
-    printf("\n\n");
+    system("cls");
+    printf("Dados inseridos\n\n");
 
     return tabel;
 }

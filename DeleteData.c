@@ -52,6 +52,11 @@ Tabel DeleteData(Tabel tabel)
         tabel.data = tabelData;
         tabel.dataLength -= 1;
     }
+    else
+    {
+        system("cls");
+        printf("Dados incorretos\n");
+    }
 
     return tabel;
 }
