@@ -8,6 +8,7 @@ void DeleteTabel()
     char erase1[100];
     printf("Qual tabela deseja deletar?\n");
     scanf("%s", &erase);
+
     char str[100];
     strcpy(erase1, erase);
     strcat(erase, "\n");

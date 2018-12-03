@@ -69,6 +69,7 @@ int main()
             DeleteTabel();
             break;
         default:
+            printf("\nPrograma encerrado\n");
             break;
         }
     }
