@@ -11,7 +11,7 @@ void SearchData(Tabel tabel)
         printf("Digite uma tabela valida\n");
         return;
     }
-
+    int j = 0;
     int var = 1;
     char colname[100];
     int valueInt = 0;
@@ -110,7 +110,11 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum numero encontrado\n\n");
+                    j++;
+                    if (j == tabel.dataLength)
+                    {
+                        printf("Nenhum numero encontrado\n\n");
+                    }
                 }
             }
         }
@@ -127,7 +131,11 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum nome encontrado\n\n");
+                    j++;
+                    if (j == tabel.dataLength)
+                    {
+                        printf("Nenhum nome encontrado\n\n");
+                    }
                 }
             }
         }
@@ -144,7 +152,11 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum numero encontrado\n\n");
+                    j++;
+                    if (j == tabel.dataLength)
+                    {
+                        printf("Nenhum numero encontrado\n\n");
+                    }
                 }
             }
         }
@@ -161,7 +173,11 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum numero encontrado\n\n");
+                    j++;
+                    if (j == tabel.dataLength)
+                    {
+                        printf("Nenhum numero encontrado\n\n");
+                    }
                 }
             }
         }
@@ -180,7 +196,11 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum numero encontrado\n\n");
+                    j++;
+                    if (j == tabel.dataLength)
+                    {
+                        printf("Nenhum numero encontrado\n\n");
+                    }
                 }
             }
         }
@@ -197,7 +217,11 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum nome encontrado\n\n");
+                    j++;
+                    if (j == tabel.dataLength)
+                    {
+                        printf("Nenhum nome encontrado\n\n");
+                    }
                 }
             }
         }
@@ -213,7 +237,11 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum numero encontrado\n\n");
+                    j++;
+                    if (j == tabel.dataLength)
+                    {
+                        printf("Nenhum numero encontrado\n\n");
+                    }
                 }
             }
         }
@@ -230,7 +258,11 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum numero encontrado\n\n");
+                    j++;
+                    if (j == tabel.dataLength)
+                    {
+                        printf("Nenhum numero encontrado\n\n");
+                    }
                 }
             }
         }
@@ -248,7 +280,12 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum numero encontrado\n\n");
+                    
+                    j++;
+                    if (j == tabel.dataLength)
+                    {
+                        printf("Nenhum numero encontrado\n\n");
+                    }
                 }
             }
         }
@@ -264,7 +301,11 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum nome encontrado\n\n");
+                    j++;
+                    if (j == tabel.dataLength)
+                    {
+                        printf("Nenhum nome encontrado\n\n");
+                    }
                 }
             }
         }
@@ -280,7 +321,11 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum numero encontrado\n\n");
+                    j++;
+                    if (j == tabel.dataLength)
+                    {
+                        printf("Nenhum numero encontrado\n\n");
+                    }
                 }
             }
         }
@@ -297,7 +342,11 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum numero encontrado\n\n");
+                    j++;
+                    if (j == tabel.dataLength)
+                    {
+                        printf("Nenhum numero encontrado\n\n");
+                    }
                 }
             }
         }
@@ -315,7 +364,11 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum numero encontrado\n\n");
+                    j++;
+                    if (j == tabel.dataLength)
+                    {
+                        printf("Nenhum numero encontrado\n\n");
+                    }
                 }
             }
         }
@@ -331,7 +384,11 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum nome encontrado\n\n");
+                    j++;
+                    if (j == tabel.dataLength)
+                    {
+                        printf("Nenhum nome encontrado\n\n");
+                    }
                 }
             }
         }
@@ -347,7 +404,11 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum numero encontrado\n\n");
+                    j++;
+                    if (j == tabel.dataLength)
+                    {
+                        printf("Nenhum numero encontrado\n\n");
+                    }
                 }
             }
         }
@@ -364,7 +425,11 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum numero encontrado\n\n");
+                    j++;
+                    if (j == tabel.dataLength)
+                    {
+                        printf("Nenhum numero encontrado\n\n");
+                    }
                 }
             }
         }
@@ -382,7 +447,11 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum numero encontrado\n\n");
+                    j++;
+                    if (j == tabel.dataLength)
+                    {
+                        printf("Nenhum numero encontrado\n\n");
+                    }
                 }
             }
         }
@@ -398,7 +467,11 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum nome encontrado\n\n");
+                    j++;
+                    if (j == tabel.dataLength)
+                    {
+                        printf("Nenhum nome encontrado\n\n");
+                    }
                 }
             }
         }
@@ -414,7 +487,11 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum numero encontrado\n\n");
+                    j++;
+                    if (j == tabel.dataLength)
+                    {
+                        printf("Nenhum numero encontrado\n\n");
+                    }
                 }
             }
         }
@@ -431,7 +508,11 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum numero encontrado\n\n");
+                    j++;
+                    if (j == tabel.dataLength)
+                    {
+                        printf("Nenhum numero encontrado\n\n");
+                    }
                 }
             }
         }
@@ -449,7 +530,11 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum numero encontrado\n\n");
+                    j++;
+                    if (j == tabel.dataLength)
+                    {
+                        printf("Nenhum numero encontrado\n\n");
+                    }
                 }
             }
         }
@@ -473,7 +558,11 @@ void SearchData(Tabel tabel)
                     }
                     else
                     {
-                        printf("Nenhum nome encontrado\n\n");
+                        j++;
+                        if (j == tabel.dataLength)
+                        {
+                            printf("Nenhum nome encontrado\n\n");
+                        }
                     }
                 }
             }
@@ -490,7 +579,11 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum numero encontrado\n\n");
+                    j++;
+                    if (j == tabel.dataLength)
+                    {
+                        printf("Nenhum numero encontrado\n\n");
+                    }
                 }
             }
         }
@@ -506,13 +599,17 @@ void SearchData(Tabel tabel)
                 }
                 else
                 {
-                    printf("Nenhum numero encontrado\n\n");
+                    j++;
+                    if (j == tabel.dataLength)
+                    {
+                        printf("Nenhum numero encontrado\n\n");
+                    }
                 }
             }
         }
         break;
     default:
-        printf("\n\n");
+        printf("\nPesquisa encerrada\n\n");
         break;
     }
 }
