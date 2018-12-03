@@ -2,9 +2,9 @@
 
 ### **Desenvolvedores:** _Marlon Secundo e Lucas Vinicius_
 
-<hr/>
-
 **Link:** https://github.com/marlonsecundo/c-database
+
+<hr/>
 
 #### Compilar
 
@@ -13,6 +13,8 @@
 #### Executar
 
 `./start.c`
+
+<hr/>
 
 ### O nosso programa é dividido em 11 partes, as quais irá ser explicado sua função e importancia nesse arquivo.
 
@@ -34,9 +36,11 @@ Esse arquivo possui a função GetTabel, tal função é responsável por ler os
 
 ### 5 - InsertData.c
 
-Esse arquivo possui a função InsertData, tal função é responsável
+Esse arquivo possui a função InsertData, tal função é responsável por inserir uma nova linha de dados na struct. Logo, a função recebe uma struct tabel por parâmetro e lê dados de entrada do usuário correspondentes as colunas da tabela, em seguida adiciona uma nova posição referente ao vetor data, no fim ele retorna a struct tabel atualizada, com a nova linha adicionada.
 
 ### 6 - DeleteData.c
+
+Esse arquivo possui a função DeleteData, tal função é responsável por apagar uma linha de dados na struct. Por sua vez a função recebe uma struct tabel por parâmetro e lê dados de entrada do usuário correspondentes a linha que deseja apagar, em seguida a função percorre os dados da struct e cria um novo vetor de dados, sem a linha informada pelo usuário. No fim, retorna a struct tabela atualizada, sem a linha informada.
 
 ### 7 - ListTabels.c
 
