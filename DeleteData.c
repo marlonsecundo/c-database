@@ -46,15 +46,16 @@ Tabel DeleteData(Tabel tabel)
             j++;
         }
     }
+    system("cls");
 
     if (j < exec)
     {
+        printf("Dados apagados\n");
         tabel.data = tabelData;
         tabel.dataLength -= 1;
     }
     else
     {
-        system("cls");
         printf("Dados incorretos\n");
     }
 
