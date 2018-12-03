@@ -60,7 +60,6 @@ void CreateTabel()
         if (scanf("%d%c", &colType, &err) != 2 || err != '\n')
         {
             system("cls");
-            printf("\nHaha nao bugou\n\n");
             printf("\nInsira um número inteiro\n");
             setbuf(stdin, NULL);
             return;
