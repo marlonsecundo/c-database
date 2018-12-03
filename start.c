@@ -34,7 +34,7 @@ int main()
         if (scanf("%d%c", &x, &term) != 2 || term != '\n')
         {
             system("cls");
-            printf("\nHaha não bugou\n");
+            printf("\nInsira um numero\n");
             x = 1;
             setbuf(stdin, NULL);
             continue;
