@@ -2,6 +2,8 @@
 
 ### **Desenvolvedores:** _Marlon Secundo e Lucas Vinicius_
 
+<hr/>
+
 **Link:** https://github.com/marlonsecundo/c-database
 
 #### Compilar
