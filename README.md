@@ -1,18 +1,18 @@
 # SGBD in C
 
-## **Desenvolvedores:** _Marlon Secundo e Lucas Vinicius_
+### **Desenvolvedores:** _Marlon Secundo e Lucas Vinicius_
 
 **Link:** https://github.com/marlonsecundo/c-database
 
 #### Compilar
 
-´ gcc start.c -o start ´
+`gcc start.c -o start`
 
 #### Executar
 
-´ ./start.c ´
+`./start.c`
 
-## O nosso programa é dividido em 11 partes, as quais irá ser explicado sua função e importancia nesse arquivo.
+### O nosso programa é dividido em 11 partes, as quais irá ser explicado sua função e importancia nesse arquivo.
 
 ### 1 - DefineTabel.c
 
@@ -48,27 +48,27 @@ Esse arquivo tem a função de ler todos os dados da tabela selecionada, caso n�
 
 Esse arquivo é responsavel por pesquisar dados dentro de uma tabela. Ele se divide em 6 procedimentos:
 
-#### 9.1 - Dados maiores:
+#### - 9.1 - Dados maiores:
 
 Caso a coluna selecionada possua o tipo Int, Float ou Double, o programa irá pesquisar e mostrar linhas com valores maiores que o digitado pelo usuário. Caso a coluna seja do tipo Char (String) ele irá pesquisar por palavras com a primeira letra maior, em ordem alfabetica, que a primeira letra da palavra digitada.
 
-#### 9.2 - Dados maiores ou iguais:
+#### - 9.2 - Dados maiores ou iguais:
 
 Caso a coluna selecionada possua o tipo Int, Float ou Double, o programa irá pesquisar e mostrar linhas com valores maiores ou iguais ao digitado pelo usuário. Caso a coluna seja do tipo Char (String) ele irá pesquisar por palavras com a primeira letra igual ou maior, em ordem alfabetica, que a primeira letra da palavra digitada.
 
-#### 9.3 - Dados iguais:
+#### - 9.3 - Dados iguais:
 
 Caso a coluna selecionada possua o tipo Int, Float ou Double, o programa irá pesquisar e mostrar linhas com valores iguais ao digitado pelo usuário. Caso a coluna seja do tipo Char (String) ele irá pesquisar por palavras iguais á palavra digitada.
 
-#### 9.4 - Dados menores:
+#### - 9.4 - Dados menores:
 
 Caso a coluna selecionada possua o tipo Int, Float ou Double, o programa irá pesquisar e mostrar linhas com valores menores que o digitado pelo usuário. Caso a coluna seja do tipo Char (String) ele irá pesquisar por palavras com a primeira letra menor, em ordem alfabetica, que a primeira letra da palavra digitada.
 
-#### 9.5 - Dados menores ou iguais:
+#### - 9.5 - Dados menores ou iguais:
 
 Caso a coluna selecionada possua o tipo Int, Float ou Double, o programa irá pesquisar e mostrar linhas com valores menores ou iguais ao digitado pelo usuário. Caso a coluna seja do tipo Char (String) ele irá pesquisar por palavras com a primeira letra igual ou menor, em ordem alfabetica, que a primeira letra da palavra digitada.
 
-#### 9.6 - Dados proximos:
+#### - 9.6 - Dados proximos:
 
 Caso a coluna selecionada possua o tipo Int, Float ou Double, o programa irá pesquisar e mostrar linhas com valores dentre uma margem de 5 do digitado pelo usuário. Caso a coluna seja do tipo Char (String) ele irá pesquisar por palavras com letras iguais as digitadas pelo usuário em sua composição.
 
