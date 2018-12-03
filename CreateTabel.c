@@ -56,7 +56,6 @@ void CreateTabel()
         }
 
         printf("Digite o tipo de dado da coluna (0:Char 1:Int 2:Float 3:Double): ");
-        scanf("%d", &colType);
 
         if (scanf("%d%c", &colType, &err) != 2 || err != '\n')
         {
@@ -80,8 +79,9 @@ void CreateTabel()
             break;
         }
 
-        if (i == newTabel.colLength)
+        if (i + 1 == newTabel.colLength)
         {
+            system("cls");
             printf("Crie um tabela com pelo menos uma coluna candidata a chave primaria\n");
             return;
         }
@@ -94,17 +94,18 @@ void CreateTabel()
         scanf("%s", primary);
 
         int value = 0;
+        int k = -1;
 
         for (value = 0; value < newTabel.colLength; value++)
         {
             if (strcmp(primary, newTabel.columns[value].name) == 0)
             {
-                value = -1;
+                k = 0;
                 break;
             }
         }
 
-        if (value != -1)
+        if (k == -1)
         {
             printf("\n -- Digite uma coluna existente -- \n");
             continue;
