@@ -4,6 +4,16 @@
 
 Tabel InsertData(Tabel tabel)
 {
+    char err = 0;
+    int k = 0;
+
+    float f = 0;
+    double d = 0;
+    int l = 0;
+    char verify[100] = "";
+
+    Tabel errTabel = {};
+
     if (tabel.colLength == 0)
     {
         return tabel;
@@ -41,6 +51,33 @@ Tabel InsertData(Tabel tabel)
         printf("Coluna: %s Tipo: %s \n", tabel.columns[i].name, type);
         printf("Digite o valor:");
         scanf("%s", value);
+
+        strcpy(verify, value);
+        strcat(verify, "\n");
+        // verificação de  tipos
+        switch (tabel.columns[i].type)
+        {
+        case 1:
+            if (sscanf(verify, "%d%c", &l, &err) != 2 || err != '\n')
+                k = 1;
+            break;
+        case 2:
+            if (sscanf(verify, "%f%c", &f, &err) != 2 || err != '\n')
+                k = 1;
+            break;
+        case 3:
+            if (sscanf(verify, "%lf%c", &d, &err) != 2 || err != '\n')
+                k = 1;
+        }
+
+        err = 0;
+
+        if (k == 1)
+        {
+            system("cls");
+            setbuf(stdin, NULL);
+            return errTabel;
+        }
 
         if (i == tabel.primary)
             strcpy(pkValue, value);

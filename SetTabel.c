@@ -7,7 +7,7 @@ void SetTabel(Tabel tabel)
     if (tabel.colLength == 0)
     {
         system("cls");
-        printf("Digite uma tabela valida\n\n");
+        printf("Dados incorretos\n\n");
         return;
     }
 
